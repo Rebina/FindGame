@@ -1,0 +1,84 @@
+﻿@model WordGame.Models.Words
+@{
+    ViewBag.Title = "Word Game";
+}
+
+<link type="text/css" href="~/Content/Main.css" rel="stylesheet" />
+
+<div class="row">
+    <div class="col-md-5 title">
+        <h3>Word Game</h3>
+    </div>
+    <div class="col-md-9">
+        <div class="col-md-5">
+            <a href="/Home/Index" class="btn btn-primary">Start New Game</a>
+            <hr />
+            <table>
+                <tr>
+                    <td>@Html.Label(Model.OneOne)</td>
+                    <td>@Html.Label(Model.OneTwo)</td>
+                    <td>@Html.Label(Model.OneThree)</td>
+                    <td>@Html.Label(Model.OneFour)</td>
+                </tr>
+                <tr>
+                    <td>@Html.Label(Model.TwoOne)</td>
+                    <td>@Html.Label(Model.TwoTwo)</td>
+                    <td>@Html.Label(Model.TwoThree)</td>
+                    <td>@Html.Label(Model.TwoFour)</td>
+                </tr>
+                <tr>
+                    <td>@Html.Label(Model.ThreeOne)</td>
+                    <td>@Html.Label(Model.ThreeTwo)</td>
+                    <td>@Html.Label(Model.ThreeThree)</td>
+                    <td>@Html.Label(Model.ThreeFour)</td>
+                </tr>
+                <tr>
+                    <td>@Html.Label(Model.FourOne)</td>
+                    <td>@Html.Label(Model.FourTwo)</td>
+                    <td>@Html.Label(Model.FourThree)</td>
+                    <td>@Html.Label(Model.FourFour)</td>
+                </tr>
+            </table>
+            <br />
+            <input type="text" id="RandomCharacter" class="form-control" style="text-transform:uppercase" onkeydown="if(event.which==13) CheckWords(@Json.Encode(Model))" />
+            <label id="InvalidWord"></label>
+            <br />
+            <br />
+            <input type="button" value="Check possible words" class="btn btn-success" id="Submit" onclick="GetPossibleWords(@Json.Encode(Model));" />
+            <br />
+            <p id="PossibleWords"></p>
+        </div>
+        <div class="col-md-4">
+            <span class="timer">2:00</span>
+            <hr />
+            <table class="records">
+                <thead>
+                    <tr>
+                        <td style="font-weight:600">Words</td>
+                        <td style="font-weight:600">Scores</td>
+                    </tr>
+                </thead>
+                <tbody id="Records">
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-12">
+            <div id="submit"></div>
+            @*<br />
+                <input type="text" id="RandomCharacter" class="form-control" style="text-transform:uppercase" onkeydown="if(event.which==13) CheckWords(@Json.Encode(Model))" />
+                <label id="InvalidWord"></label>*@
+            @*<br />
+                <br />
+                <input type="button" value="Check possible words" class="btn btn-success" id="Submit" onclick="GetPossibleWords(@Json.Encode(Model));" />
+                <br />
+                <p id="PossibleWords"></p>*@
+        </div>
+    </div>
+</div>
+
+
+@section scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <script type="text/javascript" src="~/Scripts/Main.js"></script>
+}

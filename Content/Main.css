@@ -1,0 +1,28 @@
+﻿table, td, th {
+    border: 1px solid #ddd;
+    text-align: center;
+    font-family: cursive;
+    color: darkslategray;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 10px;
+}
+
+records{
+
+}
+
+.timer {
+    font-size: x-large;
+    text-align: right;
+}
+.title{
+    text-align:center;
+    padding-bottom:30px;
+}
